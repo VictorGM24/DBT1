@@ -1,0 +1,63 @@
+version: 2
+
+sources:
+  - name: google_sheets # name of the source 
+    schema: google_sheets  # this is the schema our raw data lives in
+    database: dev_bronze_db_alumno2  # this is the name of our database
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables:
+      - name: budget
+        description: "" 
+        columns:
+          - name: _row
+            tests:
+              - unique
+              - not_null
+            description: ""
+          - name: quantity
+            tests:
+              - positive_values
+            description: ""
+          - name: month
+            description: "fecha completa"
+          - name: product_id
+            test:
+            - relationships:
+              to: source('sql_server_dbo','products')
+              field: product_id 
+            description: ""
+          - name: _fivetran_synced
+            description: "" 
+
+      - name: fivetran_audit
+        description: ""
+        columns:
+          - name: id
+            description: ""
+          - name: message
+            description: ""
+          - name: update_started
+            description: ""
+          - name: update_id
+            description: ""
+          - name: schema
+            description: ""
+          - name: table
+            description: ""
+          - name: start
+            description: ""
+          - name: done
+            description: ""
+          - name: rows_updated_or_inserted
+            description: ""
+          - name: status
+            description: ""
+          - name: progress
+            description: ""
+          - name: _fivetran_synced
+            description: "" 
