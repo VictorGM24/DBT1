@@ -15,7 +15,6 @@ budget AS (
         , product_id 
         , quantity as cantidad
         , month as fecha
-        , _fivetran_synced AS date_load
     FROM src_google_sheets
     )
 

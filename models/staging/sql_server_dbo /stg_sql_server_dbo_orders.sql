@@ -10,7 +10,8 @@ with
             address_id,
             shipping_service as servicio_envio,
             created_at as creado_el,
-            promo_id,
+            md5(replace (promo_id, ' ', '')) as id_promo,
+            promo_id as promo_nombre,
             estimated_delivery_at as entrega_estimada,
             order_cost as coste_total,
             user_id,
@@ -18,7 +19,7 @@ with
             delivered_at as entregado_el,
             tracking_id,
             status as estado,
-            shipping_cost as coste_servicio
+            shipping_cost as coste_envio
 
         from src_orders
 

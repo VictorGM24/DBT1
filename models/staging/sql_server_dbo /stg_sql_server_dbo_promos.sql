@@ -1,15 +1,18 @@
-{{ config(materialized="view") }}
-
 with
     src_promos as (select * from {{ source("sql_server_dbo", "promos") }}),
 
-    promos_renamed as (
+    promos as (
 
-        select promo_id, discount as descuento, status as estado_promo from src_promos
+        select
+
+            md5(replace (promo_id, ' ', '')) as id_promo,
+            promo_id as promo_nombre,
+            discount as descuento,
+            status as estado_promo
+
+        from src_promos
 
     )
 
-
-
 select *
-from promos_renamed
+from promos
