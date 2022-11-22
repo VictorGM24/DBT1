@@ -15,7 +15,7 @@ with
             estimated_delivery_at as entrega_estimada,
             order_cost as coste_total,
             user_id,
-            order_total,
+            order_total as venta_final,
             delivered_at as entregado_el,
             tracking_id,
             status as estado,

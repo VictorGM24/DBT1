@@ -1,9 +1,11 @@
 with
     pedidos as (select * from {{ ref('stg_sql_server_dbo_orders') }}),
 
+    --lineas_pedido as (select * from {{ ref('stg_sql_server_dbo_order_items') }}),
 
     promos as (select * from {{ref('stg_sql_server_dbo_promos')}}),
 
+   -- articulos as (select * from {{ref('stg_sql_server_dbo_products')}}),
 
     pedidos_cliente as (
         select
@@ -14,15 +16,18 @@ with
         , promos.id_promo
         , creado_el
         , entrega_estimada
-        , entregado_el
         , promos.descuento
         , coste_envio  
         , coste_total
-        , venta_final
-
+        , venta_final 
+        --lineas_pedido.product_id,
+        --lineas_pedido.cantidad,
+        --articulos.precio
 
         from pedidos
+        --join lineas_pedido on lineas_pedido.order_id = pedidos.order_id
         left join promos on promos.id_promo = pedidos.id_promo
+        --join articulos on articulos.product_id = lineas_pedido.product_id
 
     )
 
