@@ -27,31 +27,23 @@ sources:
       - name: budget
         loaded_at_field: _fivetran_synced
         description: >
-          Data about budget in demo.
+            Datos sobre el presupuesto.
         columns:
           - name: _row
             description: >
-              Number of each row from google sheet.
+              Número de cada fila de la hoja de Google.
             tests:
               - not_null
-              - unique
           - name: product_id
             description: >
-              UUID for each unique product on platform.
+              Un id para cada producto único en la plataforma.
             tests:
               - not_null
           - name: quantity
             description: >
-              Number of units for each product and each month for products.
+              Numero de unidades por cada producto y cada mes por productos.
             tests:
               - not_null
           - name: month
             description: >
-              Each month for the budget > End of the month.
-            tests:
-              - not_null
-          - name: _fivetran_synced
-            description: >
-              Date on which data were uploaded.
-            tests:
-              - not_null
+              Cada mes para el presupuesto > Fin de mes.

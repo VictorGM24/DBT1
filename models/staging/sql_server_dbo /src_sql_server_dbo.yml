@@ -108,8 +108,7 @@ sources:
           - name: quantity
             description: ""
             tests:
-              - not_null
-              #- positive_values			             
+              - not_null		             
           - name: _fivetran_deleted
             description: ""
           - name: _fivetran_synced
@@ -132,8 +131,7 @@ sources:
           - name: order_cost
             description: ""
             tests:
-              - not_null
-              #- positive_values			            
+              - not_null		            
           - name: created_at
             description: ""
           - name: tracking_id
@@ -163,8 +161,7 @@ sources:
           - name: order_total
             description: ""
             tests:
-              - not_null
-              #- positive_values			              
+              - not_null		              
           - name: estimated_delivery_at
             description: ""
           - name: _fivetran_deleted
@@ -187,8 +184,7 @@ sources:
           - name: price
             description: ""
             tests:
-              - not_null
-              #- positive_values			              
+              - not_null		              
           - name: _fivetran_deleted
             description: ""
           - name: _fivetran_synced
@@ -244,9 +240,6 @@ sources:
             description: ""
           - name: email
             description: ""
-            tests:
-              - unique
-              - not_null           
           - name: _fivetran_deleted
             description: ""
           - name: _fivetran_synced

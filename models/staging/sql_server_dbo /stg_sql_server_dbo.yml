@@ -1,0 +1,190 @@
+version: 2
+
+
+models:
+  - name: stg_sql_server_dbo_addresses
+    description: ""
+    columns:
+      - name: address_id
+        description: "Tabla de direcciones."
+
+      - name: country
+        description: ""
+
+      - name: zipcode
+        description: ""
+
+      - name: address
+        description: ""
+
+      - name: state
+        description: ""
+
+
+  - name: stg_sql_server_dbo_events
+    description: "Eventos transcurridos en el WEB"
+    columns:
+      - name: event_id
+        description: ""
+        tests:
+          - not_null
+          - unique
+
+      - name: created_at
+        description: ""
+
+      - name: product_id
+        description: ""
+
+      - name: session_id
+        description: ""
+
+      - name: page_url
+        description: ""
+
+      - name: order_id
+        description: ""
+
+      - name: event_type
+        description: ""
+
+      - name: user_id
+        description: ""
+
+
+  - name: stg_sql_server_dbo_order_items
+    description: "encargar articulos"
+    columns:
+      - name: order_id
+        description: ""
+
+      - name: product_id
+        description: ""
+
+      - name: quantity
+        description: "cantidad"
+
+
+  - name: stg_sql_server_dbo_orders
+    description: "Pedidos"
+    columns:
+      - name: order_id
+        description: ""
+        tests:
+        - not_null
+        - unique
+
+      - name: promo_id
+        description: ""
+
+      - name: promo
+        description: "nombre de la promo"
+
+      - name: order_cost
+        description: "coste total"
+
+      - name: created_at
+        description: "pedido creado el "
+
+      - name: tracking_id
+        description: ""
+        tests:
+          - not_null
+          - unique
+
+      - name: address_id
+        description: ""
+        
+
+      - name: delivered_at
+        description: "entregado el"
+
+      - name: status
+        description: "estado del pedido"
+
+      - name: shipping_cost
+        description: "coste del envio"
+
+      - name: user_id
+        description: ""
+        tests:
+        - unique  
+
+      - name: shipping_service
+        description: "servicio de mensajeria"
+
+      - name: order_total
+        description: ""
+
+      - name: estimated_delivery_at
+        description: ""
+
+
+  - name: stg_sql_server_dbo_products
+    description: "Productos"
+    columns:
+      - name: product_id
+        description: ""
+        tests:
+          - not_null
+          - unique
+
+      - name: name
+        description: "nombre del producto"
+
+      - name: inventory
+        description: "inventario"
+
+      - name: price
+        description: "precio"
+
+
+  - name: stg_sql_server_dbo_promos
+    description: "Promo aplicada al pedido"
+    columns:
+      - name: id_promo
+        description: ""
+        tests:
+        - not_null
+        - unique
+
+      - name: promo_nombre
+        description: "nombre de la promocion"
+
+      - name: discount
+        description: "descuento"
+
+      - name: status
+        description: "estado de la promo"
+
+
+  - name: stg_sql_server_dbo_users
+    description: "clientes"
+    columns:
+      - name: user_id
+        description: ""
+        tests:
+        - not_null
+        - unique
+
+      - name: phone_number
+        description: "telefono movil"
+
+      - name: first_name
+        description: "nombre"
+
+      - name: last_name 
+        description: "apellido"
+
+      - name: created_at
+        description: "pedido creado el"
+
+      - name: address_id
+        description: ""
+
+      - name: updated_at
+        description: "pedido actualiazado el"
+
+      - name: email
+        description: ""
+        tests:
