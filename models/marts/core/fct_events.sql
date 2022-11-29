@@ -13,7 +13,6 @@ with
         ,pagina_url
         ,tipo_evento
         ,eventos.user_id
-        --,eventos.product_id
         ,session_id
         ,eventos.creado_el
         ,eventos.order_id
@@ -21,7 +20,6 @@ with
         from eventos
         join clientes on clientes.user_id = eventos.user_id
         join pedidos on pedidos.order_id = eventos.order_id
-       -- join articulos on articulos.product_id = eventos.product_id
     )
 
 select *
