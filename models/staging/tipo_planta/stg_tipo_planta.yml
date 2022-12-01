@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: tipo_planta
+    description: ""
+    columns:
+      - name: id_tipo
+        description: ""
+
+      - name: tipo_planta
+        description: ""

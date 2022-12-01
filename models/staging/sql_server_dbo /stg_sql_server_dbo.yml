@@ -117,6 +117,8 @@ models:
 
       - name: venta_final
         description: ""
+        tests:
+          - positive_values
 
       - name: entregado_el
         description: ""
