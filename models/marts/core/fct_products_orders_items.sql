@@ -10,10 +10,10 @@ with
         , order_id
         , precio
         , cantidad
-        , inventario
-
+        , (precio*cantidad) as importe_total_linea
         from articulos
         join lineas_pedido on articulos.product_id = lineas_pedido.product_id
+ --       where order_id = '5dbde056-632e-484a-a30b-67665cec51ee'
 
     )
 

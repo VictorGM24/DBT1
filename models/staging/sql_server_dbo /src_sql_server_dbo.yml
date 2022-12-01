@@ -21,24 +21,22 @@ sources:
         description: "Tabla de direcciones. Tanto clientes como pedidos"
         columns:
           - name: address_id
-            description: ""
+            description: "Identificador unico de direccion"
             tests:
               - not_null
               - unique
           - name: country
-            description: ""
+            description: "Pais"
             tests:
               - not_null            
           - name: zipcode
-            description: ""
+            description: "Codigo postal"
             tests:
               - not_null            
           - name: address
-            description: ""
-            tests:
-              - not_null            
+            description: "direccion"           
           - name: state
-            description: ""
+            description: "estado region"
             tests:
               - not_null            
           - name: _fivetran_deleted
@@ -50,39 +48,30 @@ sources:
         description: "Eventos transcurridos en el WEB"
         columns:
           - name: event_id
-            description: ""
+            description: "identificador unico de evento"
             tests:
               - not_null
               - unique            
           - name: created_at
-            description: ""
+            description: "evento creado en la fecha"
           - name: product_id
-            description: ""
+            description: "identificador unico de producto"
             tests:
-              - not_null
-              - relationships:
-                  to: source('sql_server_dbo','products')
-                  field: product_id            
+              - not_null           
           - name: session_id
-            description: ""
+            description: "identificador unico de la sesion"
           - name: page_url
-            description: ""
+            description: "pagina web a la que acceden"
           - name: order_id
-            description: ""
+            description: "identificador unico de pedido"
             tests:
-              - not_null
-              - relationships:
-                  to: source('sql_server_dbo','orders')
-                  field: order_id            
+              - not_null        
           - name: event_type
-            description: ""
+            description: "tipo de evento"
           - name: user_id
-            description: ""
+            description: "identificador unico de cliente"
             tests:
               - not_null
-              - relationships:
-                  to: source('sql_server_dbo','users')
-                  field: user_id
           - name: _fivetran_deleted
             description: ""
           - name: _fivetran_synced
@@ -92,21 +81,18 @@ sources:
         description: "Artículos del pedido"
         columns:
           - name: order_id       
-            description: ""
+            description: "identificador unico de pedido"
             tests:
-              - not_null
-              - relationships:
-                  to: source('sql_server_dbo','orders')
-                  field: order_id        
+              - not_null    
           - name: product_id
-            description: ""
+            description: "identificador unico de producto"
             tests:
               - not_null
               - relationships:
                   to: source('sql_server_dbo','products')
                   field: product_id            
           - name: quantity
-            description: ""
+            description: "cantidad de productos"
             tests:
               - not_null		             
           - name: _fivetran_deleted
@@ -118,52 +104,48 @@ sources:
         description: "Pedidos"
         columns:
           - name: order_id
-            description: ""
+            description: "identificador unico de pedido"
             tests:
               - unique
               - not_null
           - name: promo_id
-            description: ""
-            tests:
-              - relationships:
-                  to: source('sql_server_dbo','promos')
-                  field: promo_id            
+            description: "identificador unico de promo"           
           - name: order_cost
-            description: ""
+            description: "coste del pedido"
             tests:
               - not_null		            
           - name: created_at
-            description: ""
+            description: "pedido creado el"
           - name: tracking_id
-            description: ""
+            description: "identificador unico del seguimiento(tracking)"
           - name: address_id
-            description: ""
+            description: "identificador unico de la direccion"
             tests:
               - not_null
               - relationships:
                   to: source('sql_server_dbo','addresses')
                   field: address_id            
           - name: delivered_at
-            description: ""
+            description: "pedido entregado el"
           - name: status
-            description: ""
+            description: "estado del pedido"
           - name: shipping_cost
-            description: ""
+            description: "coste del servicio"
           - name: user_id
-            description: ""
+            description: "identificador unico del cliente"
             tests:
               - not_null
               - relationships:
                   to: source('sql_server_dbo','users')
                   field: user_id            
           - name: shipping_service
-            description: ""
+            description: "Servicio de envio"
           - name: order_total
-            description: ""
+            description: "total del pedido"
             tests:
               - not_null		              
           - name: estimated_delivery_at
-            description: ""
+            description: "entrega del pedido estimada"
           - name: _fivetran_deleted
             description: ""
           - name: _fivetran_synced
@@ -173,16 +155,16 @@ sources:
         description: "Productos"
         columns:
           - name: product_id
-            description: ""
+            description: "identificador unico del producto"
             tests:
               - unique
               - not_null            
           - name: name
-            description: ""
+            description: "nombre del producto"
           - name: inventory
-            description: ""
+            description: "inventario"
           - name: price
-            description: ""
+            description: "precio del producto"
             tests:
               - not_null		              
           - name: _fivetran_deleted
@@ -194,14 +176,13 @@ sources:
         description: "Promo aplicada al pedido"
         columns:
           - name: promo_id
-            description: ""
+            description: "identificador unico de la promo"
             tests:
-              - unique
-              - not_null           
+              - unique        
           - name: discount
-            description: ""
+            description: "descuento de la promo"
           - name: status
-            description: ""
+            description: "estado de la promo"
           - name: _fivetran_deleted
             description: ""
           - name: _fivetran_synced
@@ -211,35 +192,34 @@ sources:
         description: "Clientes"
         columns:
           - name: user_id
-            description: ""
+            description: "identificador unico de cliente"
             tests:
               - unique
               - not_null          
           - name: phone_number
-            description: ""
+            description: "numero de telefono"
           - name: total_orders
-            description: ""
+            description: "campo vacio todo nulos"
           - name: first_name
-            description: ""
+            description: "Nombre"
             tests:
               - not_null           
           - name: last_name
-            description: ""
+            description: "apellido"
             tests:
               - not_null            
           - name: created_at
-            description: ""
+            description: "usuario creado en la fecha"
           - name: address_id
-            description: ""
+            description: "identificador unico de direccion"
             tests:
-              - not_null 
               - relationships:
                   to: source('sql_server_dbo','addresses')
                   field: address_id            
           - name: updated_at
-            description: ""
+            description: "usuario actualizado"
           - name: email
-            description: ""
+            description: "correo electronico"
           - name: _fivetran_deleted
             description: ""
           - name: _fivetran_synced

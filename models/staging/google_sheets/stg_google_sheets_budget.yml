@@ -2,18 +2,16 @@ version: 2
 
 models:
   - name: stg_google_sheets_budget
+    description: ""
     columns:
-      - name: _row
-        tests:
-          - not_null
-          - unique
-      - name: product_id         
-        tests:
-          - not_null
-          - relationships:
-                to: ref('stg_sql_server_dbo_products')
-                field: product_id  
-      - name: quantity
-        tests:
-          - not_null 
-      - name: month
+      - name: fila
+        description: ""
+
+      - name: product_id
+        description: ""
+
+      - name: cantidad
+        description: ""
+
+      - name: fecha
+        description: ""

@@ -1,11 +1,9 @@
 version: 2
 
 sources:
-
-  - name: google_sheets # Name of the source, this name will be used to reference the {{ source ('','') }} function.
-    description: >
-      Raw data demo from Budget.
-    schema: google_sheets # This is the schema our raw data lives in snowflake.
+  - name: google_sheets
+    description: "Datos extraidos desde SQL Server"  
+    schema: google_sheets # this is the schema our raw data lives in
     database: |  
         {%- if  target.name == 'user_dev' -%} dev_bronze_db_alumno2 
         {%- elif target.name == 'ci' -%} dev_bronze_db_alumno2
@@ -17,33 +15,22 @@ sources:
       database: false
       schema: false
       identifier: false
-
-    freshness:
-      warn_after: {count: 24, period: hour}
-      error_after: {count: 48, period: hour}
-
     tables:
 
       - name: budget
-        loaded_at_field: _fivetran_synced
-        description: >
-            Datos sobre el presupuesto.
+        description: "Datos sobre el presupuesto"
         columns:
           - name: _row
-            description: >
-              Número de cada fila de la hoja de Google.
+            description: "Número de cada fila de la hoja de Google"
             tests:
               - not_null
           - name: product_id
-            description: >
-              Un id para cada producto único en la plataforma.
+            description: "Un id para cada producto único en la plataforma"
             tests:
               - not_null
           - name: quantity
-            description: >
-              Numero de unidades por cada producto y cada mes por productos.
+            description: "Numero de unidades por cada producto y cada mes por productos"
             tests:
               - not_null
           - name: month
-            description: >
-              Cada mes para el presupuesto > Fin de mes.
+            description: "Cada mes para el presupuesto > Fin de mes"

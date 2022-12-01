@@ -12,7 +12,7 @@ with
 
 SELECT
     CASE 
-        WHEN numero_pedidos_cliente >=3 THEN '3+'
+        WHEN numero_pedidos_cliente >=6 THEN '6+'
         else numero_pedidos_cliente :: varchar
         end as numero_pedidos_cliente,
         count(distinct user_id) as users

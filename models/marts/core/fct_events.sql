@@ -5,7 +5,9 @@ with
 
     pedidos as (select * from {{ ref('stg_sql_server_dbo_orders') }}),
 
-    articulos as (select * from {{ref('stg_sql_server_dbo_products')}}),
+    --articulos as (select * from {{ref('stg_sql_server_dbo_products')}}),
+
+    dim_fecha as (select * from {{ref('dim_fecha')}}),
 
     eventos_completos as (
         select
@@ -13,6 +15,7 @@ with
         ,pagina_url
         ,tipo_evento
         ,eventos.user_id
+        ,dim_fecha.id_date
         ,session_id
         ,eventos.creado_el
         ,eventos.order_id
@@ -20,6 +23,7 @@ with
         from eventos
         join clientes on clientes.user_id = eventos.user_id
         join pedidos on pedidos.order_id = eventos.order_id
+        join dim_fecha on dim_fecha.fecha_forecast = cast(pedidos.creado_el as date)
     )
 
 select *

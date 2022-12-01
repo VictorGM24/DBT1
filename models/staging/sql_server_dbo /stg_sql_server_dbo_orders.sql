@@ -28,6 +28,7 @@ with
             shipping_cost as coste_envio
 
         from src_orders
+            --    where order_id = '5dbde056-632e-484a-a30b-67665cec51ee'
 
     )
 
