@@ -4,18 +4,14 @@
   )
 }}
 
-WITH src_google_sheets AS (
+WITH src_google_sheets_budget AS (
     SELECT * 
-    FROM {{ source('google_sheets', 'budget') }}
+    FROM {{ source('google_sheets','budget') }}
     ),
 
-budget AS (
-    SELECT
-          _row as fila
-        , product_id 
-        , quantity as cantidad
-        , month as fecha
-    FROM src_google_sheets
+ budget AS (
+    SELECT*
+    FROM src_google_sheets_budget
     )
 
 SELECT * FROM budget

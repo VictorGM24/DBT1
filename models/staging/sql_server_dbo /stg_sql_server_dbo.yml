@@ -111,6 +111,8 @@ models:
 
       - name: coste_total
         description: ""
+        tests:
+          - positive_values
 
       - name: user_id
         description: ""
@@ -138,13 +140,16 @@ models:
     description: ""
     tests:
         - dbt_expectations.expect_table_column_count_to_equal:
-            value: 4    
+            value: 5    
+
     columns:
       - name: product_id
         description: ""
-        tests:
 
       - name: precio
+        description: ""
+
+      - name: id_nombre_planta
         description: ""
 
       - name: nombre_producto

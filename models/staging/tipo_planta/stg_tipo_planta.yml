@@ -1,11 +1,17 @@
 version: 2
 
 models:
-  - name: tipo_planta
-    description: ""
+  - name: stg_tipo_planta
+    description: "los productos que tenemos son diferentes tipos de plantas"
     columns:
-      - name: id_tipo
-        description: ""
+      - name: id_nombre_planta
+        description: "identificador unico de planta"
+        tests:
+          - unique
+          - not_null
+
+      - name: nombre_planta
+        description: "nombre de la planta"
 
       - name: tipo_planta
-        description: ""
+        description: "categoria o tipo a la que pertenece la planta"

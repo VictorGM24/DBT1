@@ -9,7 +9,7 @@ with
           product_id
         , inventario
         , precio
-        , (inventario*precio) as total_e_producto
+        , (inventario*precio) as total_euros_producto
         from articulos
         --join lineas_pedido on articulos.product_id = lineas_pedido.product_id
 
