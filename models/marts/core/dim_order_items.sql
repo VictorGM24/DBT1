@@ -5,7 +5,7 @@ with
     
     lineas_pedido as (
         select
-        order_id
+         order_id
         ,product_id 
         ,cantidad
         

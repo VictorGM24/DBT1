@@ -16,7 +16,7 @@ with
                 end as id_promo ,
             promo_id as promo_nombre,
             estimated_delivery_at as entrega_estimada,
-            order_cost as coste_total,
+            order_cost as coste_total_sin_envio,
             user_id,
             order_total as venta_final,
             delivered_at as entregado_el,

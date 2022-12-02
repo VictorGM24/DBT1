@@ -20,7 +20,7 @@ with
         , DATEDIFF(day, creado_el, entregado_el) AS tiempo_entrega
         , promos.descuento
         , coste_envio  
-        , coste_total
+        , coste_total_sin_envio
         , venta_final
         , Importe_Medio_Pedido_Cliente
 

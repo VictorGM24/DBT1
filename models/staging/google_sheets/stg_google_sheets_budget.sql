@@ -10,7 +10,12 @@ WITH src_google_sheets_budget AS (
     ),
 
  budget AS (
-    SELECT*
+    SELECT
+      _row as fila,
+      quantity as cantidad,
+      month as fecha,
+      product_id,
+      _fivetran_synced
     FROM src_google_sheets_budget
     )
 

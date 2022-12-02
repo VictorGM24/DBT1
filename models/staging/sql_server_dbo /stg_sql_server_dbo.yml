@@ -109,7 +109,7 @@ models:
       - name: entrega_estimada
         description: ""
 
-      - name: coste_total
+      - name: coste_total_sin_envio
         description: ""
         tests:
           - positive_values
@@ -123,7 +123,7 @@ models:
           - positive_values
 
       - name: entregado_el
-        description: ""
+        description: "entregado en la fecha"
 
       - name: tracking_id
         description: ""
@@ -133,7 +133,7 @@ models:
         description: ""
 
       - name: coste_envio
-        description: ""
+        description: "coste del envio"
 
 
   - name: stg_sql_server_dbo_products

@@ -5,20 +5,19 @@ with
 
     pedidos as (select * from {{ ref('stg_sql_server_dbo_orders') }}),
 
-    --articulos as (select * from {{ref('stg_sql_server_dbo_products')}}),
-
     dim_fecha as (select * from {{ref('dim_fecha')}}),
 
     eventos_completos as (
         select
-         event_id
-        ,pagina_url
-        ,tipo_evento
-        ,eventos.user_id
-        ,dim_fecha.id_date
-        ,session_id
-        ,eventos.creado_el
-        ,eventos.order_id
+          event_id
+        , pagina_url
+        , tipo_evento
+        , eventos.user_id
+        , dim_fecha.id_date
+        , session_id
+        , eventos.creado_el
+        , eventos.order_id
+
 
         from eventos
         join clientes on clientes.user_id = eventos.user_id

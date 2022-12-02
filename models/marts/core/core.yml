@@ -11,12 +11,15 @@ models:
         description: ""
 
       - name: precio
-        description: ""
+        description: "precio del producto"
 
       - name: cantidad
-        description: ""
+        description: "cantidad de productos"
 
-      - name: inventario
+      - name: importe_total_linea
+        description: "es el importe total por linea de ticket"
+
+      - name: user_id
         description: ""
 
   - name: fct_productos_almacen
@@ -26,13 +29,13 @@ models:
         description: ""
 
       - name: inventario
-        description: ""
+        description: "stock que tenemos"
 
       - name: precio
-        description: ""
+        description: "precio que tiene cada articulo"
 
       - name: total_euros_producto
-        description: ""
+        description: "importe en euros por todo el producto que tenemos en stock"
 
   - name: fct_orders
     description: ""
@@ -44,7 +47,7 @@ models:
         description: ""
 
       - name: user_id
-        description: ""
+        description: "identificador unico de cliente"
 
       - name: tracking_id
         description: ""
@@ -56,25 +59,28 @@ models:
         description: ""
 
       - name: entrega_estimada
-        description: ""
+        description: "fecha de entrega del pedido estimada"
 
       - name: entregado_el
-        description: ""
+        description: "pedido entregado el"
 
       - name: tiempo_entrega
-        description: ""
+        description: "tiempo de entrega"
 
       - name: descuento
-        description: ""
+        description: "descuento por promo que tenga"
 
       - name: coste_envio
-        description: ""
+        description: "coste del envio"
 
-      - name: coste_total
-        description: ""
+      - name: coste_total_sin_envio
+        description: "coste total del pedido sin contar los gastos de envio "
 
       - name: venta_final
         description: ""
+
+      - name: importe_medio_pedido_cliente
+        description: "el  importe medio de la cantidad total de cada cliente"
 
   - name: fct_events
     description: ""
@@ -101,4 +107,127 @@ models:
         description: ""
 
       - name: order_id
-        description: ""        
+        description: ""
+
+  - name: fct_budget
+    description: ""
+    columns:
+      - name: fila
+        description: ""
+
+      - name: product_id
+        description: ""
+
+      - name: cantidad
+        description: ""
+
+      - name: fecha
+        description: ""
+
+  - name: dim_users
+    description: ""
+    columns:
+      - name: user_id
+        description: ""
+
+      - name: actualizado_el
+        description: ""
+
+      - name: nombre
+        description: ""
+
+      - name: apellido
+        description: ""
+
+      - name: creado_el
+        description: ""
+
+      - name: telefono_movil
+        description: ""
+
+      - name: correo
+        description: ""
+
+  - name: dim_promos
+    description: ""
+    columns:
+      - name: id_promo
+        description: ""
+
+      - name: promo_nombre
+        description: ""
+
+      - name: estado_promo
+        description: ""
+
+  - name: dim_products
+    description: ""
+    columns:
+      - name: product_id
+        description: ""
+
+      - name: nombre_producto
+        description: ""
+
+      - name: tipo_planta
+        description: "categoria o tipo a la que pertenece la planta"
+
+  - name: dim_order_items
+    description: ""
+    columns:
+      - name: order_id
+        description: ""
+
+      - name: product_id
+        description: ""
+
+      - name: cantidad
+        description: ""
+
+  - name: dim_fecha
+    description: "dimension de fecha"
+    columns:
+      - name: fecha_forecast
+        description: "fecha completa"
+
+      - name: id_date
+        description: "identificador unico de fecha todo junto"
+
+      - name: anio
+        description: "año"
+
+      - name: mes
+        description: "mes"
+
+      - name: desc_mes
+        description: "mes descendiente"
+
+      - name: id_anio_mes
+        description: "identificador unico de año y mes"
+
+      - name: dia_previo
+        description: "dia anterior"
+
+      - name: anio_semana_dia
+        description: ""
+
+      - name: semana
+        description: ""
+
+  - name: dim_addresses
+    description: ""
+    columns:
+      - name: id_address
+        description: "identificador unico de direccion"
+
+      - name: pais
+        description: ""
+
+      - name: codigo_postal
+        description: ""
+
+      - name: direccion
+        description: ""
+
+      - name: estado_region
+        description: ""
