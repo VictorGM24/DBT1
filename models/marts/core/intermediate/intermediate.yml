@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: int_recuento_usuarios
+    description: "tabla en la cual sacamos diferentes medidas para los usuarios/clientes"
+    columns:
+      - name: user_id
+        description: "identificador unico de cliente"
+
+      - name: numero_pedidos_cliente
+        description: "numero de pedidos por cada cliente"
+        tests:
+          - positive_values
+
+      - name: importe_total_cliente
+        description: "la cantidad final de cada cliente"
+        tests:
+          - positive_values        
+
+      - name: importe_medio_pedido_cliente
+        description: "el  importe medio de la cantidad total de cada cliente"
+
+      - name: importe_pedido_max
+        description: "importe del pedido maximo de cada cliente"
+
+      - name: importe_pedido_min
+        description: "el importe del pedido minimo de cada cliente"
+
+      - name: direcciones_distintas_cliente
+        description: "direcciones distintas de cada cliente"
+
+      - name: fecha_ultimo_pedido
+        description: "la fecha del ultimo pedido de cada cliente"

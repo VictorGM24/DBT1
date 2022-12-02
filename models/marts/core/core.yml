@@ -1,0 +1,104 @@
+version: 2
+
+models:
+  - name: fct_products_orders_items
+    description: ""
+    columns:
+      - name: product_id
+        description: ""
+
+      - name: order_id
+        description: ""
+
+      - name: precio
+        description: ""
+
+      - name: cantidad
+        description: ""
+
+      - name: inventario
+        description: ""
+
+  - name: fct_productos_almacen
+    description: ""
+    columns:
+      - name: product_id
+        description: ""
+
+      - name: inventario
+        description: ""
+
+      - name: precio
+        description: ""
+
+      - name: total_euros_producto
+        description: ""
+
+  - name: fct_orders
+    description: ""
+    columns:
+      - name: order_id
+        description: ""
+
+      - name: address_id
+        description: ""
+
+      - name: user_id
+        description: ""
+
+      - name: tracking_id
+        description: ""
+
+      - name: id_promo
+        description: ""
+
+      - name: id_date
+        description: ""
+
+      - name: entrega_estimada
+        description: ""
+
+      - name: entregado_el
+        description: ""
+
+      - name: tiempo_entrega
+        description: ""
+
+      - name: descuento
+        description: ""
+
+      - name: coste_envio
+        description: ""
+
+      - name: coste_total
+        description: ""
+
+      - name: venta_final
+        description: ""
+
+  - name: fct_events
+    description: ""
+    columns:
+      - name: event_id
+        description: ""
+
+      - name: pagina_url
+        description: ""
+
+      - name: tipo_evento
+        description: ""
+
+      - name: user_id
+        description: ""
+
+      - name: id_date
+        description: ""
+
+      - name: session_id
+        description: ""
+
+      - name: creado_el
+        description: ""
+
+      - name: order_id
+        description: ""        
