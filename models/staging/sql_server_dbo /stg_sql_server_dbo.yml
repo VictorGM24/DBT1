@@ -94,7 +94,7 @@ models:
       - name: address_id
         description: ""
         
-      - name: servicio_envio
+      - name: servicio_de_envio
         description: ""
 
       - name: creado_el
@@ -130,6 +130,9 @@ models:
         tests:
 
       - name: estado_id
+        description: ""
+      
+      - name: estado_del_pedido
         description: ""
 
       - name: coste_envio

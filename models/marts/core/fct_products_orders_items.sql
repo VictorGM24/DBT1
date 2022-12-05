@@ -11,7 +11,7 @@ with
         , lineas_pedido.order_id
         , precio
         , cantidad
-        , (precio*cantidad) as importe_total_linea
+        , precio*cantidad
         , user_id
         from articulos
         join lineas_pedido on articulos.product_id = lineas_pedido.product_id
