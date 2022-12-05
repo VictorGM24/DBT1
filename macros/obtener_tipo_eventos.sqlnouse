@@ -1,4 +1,4 @@
-{% set event_types = obtener_valores( source('sql_server_dbo', 'events'),'event_type') %}
+{% set event_types = obtener_tipo_eventos( source('sql_server_dbo', 'events'),'event_type') %}
 WITH stg_events AS (
     SELECT * 
     FROM {{ source('sql_server_dbo', 'events') }}

@@ -16,7 +16,7 @@ int_session_events_users AS (
     FROM eventos
 
 
-    group_by 1,2,3,4
+    group by 1,2,3,4
 
     )
 

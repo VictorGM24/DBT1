@@ -3,7 +3,7 @@ with
 
 servicio_de_entrega as (
         select
-           servicio_envio,
+           servicio_de_envio,
            estado_del_pedido
 
 
