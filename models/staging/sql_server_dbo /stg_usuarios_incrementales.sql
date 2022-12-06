@@ -17,9 +17,6 @@ with
             nombre
             FROM twitter_usuarios
 
-
-
-       -- from  src_users
     
 
     )

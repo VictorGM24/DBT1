@@ -14,7 +14,7 @@ models:
         tests:
 
       - name: pais
-        description: ""
+        description: "pais de cada cliente"
 
       - name: codigo_postal
         description: ""
@@ -36,19 +36,19 @@ models:
 
     columns:
       - name: event_id
-        description: ""
+        description: "identificador unico de evento"
 
       - name: pagina_url
-        description: ""
+        description: "pagina web"
 
       - name: tipo_evento
         description: ""
 
       - name: user_id
-        description: ""
+        description: "identicador unico de usuario"
 
       - name: product_id
-        description: ""
+        description: "identifador unico de producto"
 
       - name: session_id
         description: ""
@@ -85,7 +85,7 @@ models:
     description: ""
     tests:
         - dbt_expectations.expect_table_column_count_to_equal:
-            value: 14    
+            value: 15    
     columns:
       - name: order_id
         description: ""
@@ -150,16 +150,16 @@ models:
         description: ""
 
       - name: precio
-        description: ""
+        description: "precio del articulo, en este caso son plantas"
 
       - name: id_nombre_planta
         description: ""
 
       - name: nombre_producto
-        description: ""
+        description: "nombre de los productos, que en este caso son plantas"
 
       - name: inventario
-        description: ""
+        description: "el stock que tenemos de cada producto"
 
   - name: stg_sql_server_dbo_promos
     description: ""
@@ -221,9 +221,6 @@ models:
         tests:
          - dbt_expectations.expect_column_values_to_match_like_pattern:
              like_pattern: "%@%"        
-
-      - name: total_pedidos
-        description: ""
 
       - name: _fivetran_deleted
         description: ""

@@ -6,12 +6,14 @@ models:
     columns:
       - name: fila
         description: ""
+        tests:
+          - unique
 
       - name: product_id
         description: ""
 
       - name: cantidad
-        description: ""
+        description: "cantidad presupuestada"
 
       - name: fecha
         description: ""

@@ -22,21 +22,6 @@ models:
       - name: user_id
         description: ""
 
-  - name: fct_productos_almacen
-    description: ""
-    columns:
-      - name: product_id
-        description: ""
-
-      - name: inventario
-        description: "stock que tenemos"
-
-      - name: precio
-        description: "precio que tiene cada articulo"
-
-      - name: total_euros_producto
-        description: "importe en euros por todo el producto que tenemos en stock"
-
   - name: fct_orders
     description: ""
     columns:
@@ -110,7 +95,7 @@ models:
         description: ""
 
   - name: fct_budget
-    description: ""
+    description: "tabla de hechos de presupuesto"
     columns:
       - name: fila
         description: ""
@@ -125,13 +110,13 @@ models:
         description: ""
 
   - name: dim_users
-    description: ""
+    description: "dimension de cliente"
     columns:
       - name: user_id
         description: ""
 
       - name: actualizado_el
-        description: ""
+        description: "fecha en la que el cliente puede haber sufrido algunas modificaciones en sus datos"
 
       - name: nombre
         description: ""
@@ -140,13 +125,16 @@ models:
         description: ""
 
       - name: creado_el
-        description: ""
+        description: "fecha en la que el cliente fue creado en la base de datos"
 
       - name: telefono_movil
         description: ""
 
       - name: correo
         description: ""
+        tests:
+         - dbt_expectations.expect_column_values_to_match_like_pattern:
+             like_pattern: "%@%"        
 
   - name: dim_promos
     description: ""

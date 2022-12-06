@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: usuarios_cant_pedidos
+    description: ""
+    columns:
+      - name: numero_pedidos_cliente
+        description: ""
+
+      - name: users
+        description: ""
