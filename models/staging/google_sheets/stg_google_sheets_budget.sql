@@ -4,7 +4,7 @@
   )
 }}
 
-WITH src_google_sheets_budget AS (
+WITH src_google_sheets AS (
     SELECT * 
     FROM {{ source('google_sheets','budget') }}
     ),
@@ -16,7 +16,7 @@ WITH src_google_sheets_budget AS (
       month as fecha,
       product_id,
       _fivetran_synced
-    FROM src_google_sheets_budget
+    FROM src_google_sheets
     )
 
 SELECT * FROM budget

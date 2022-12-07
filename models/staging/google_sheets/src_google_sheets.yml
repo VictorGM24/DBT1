@@ -34,3 +34,19 @@ sources:
               - not_null
           - name: month
             description: "Cada mes para el presupuesto > Fin de mes"
+
+      - name: usuarios_twitter
+        description: ""
+        columns:
+          - name: _row
+            description: ""
+          - name: correo
+            description: ""
+          - name: nombre
+            description: ""
+          - name: creado_el
+            description: ""
+          - name: telefono_movil
+            description: ""
+          - name: _fivetran_synced
+            description: ""

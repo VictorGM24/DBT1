@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_google_sheets_budget
+    description: ""
+    columns:
+      - name: fila
+        description: ""
+        tests:
+          - unique
+
+      - name: product_id
+        description: ""
+
+      - name: cantidad
+        description: "cantidad presupuestada"
+
+      - name: fecha
+        description: ""
+
+      - name: usuarios_twitter
+        description: ""
+        columns:
+          - name: _row
+            description: ""
+          - name: correo
+            description: ""
+          - name: nombre
+            description: ""
+          - name: creado_el
+            description: ""
+          - name: telefono_movil
+            description: ""
+          - name: _fivetran_synced
+            description: ""
