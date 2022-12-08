@@ -49,6 +49,8 @@ models:
         +schema: google_sheets
       sql_server_dbo:
         +schema: sql_server_dbo
+      tipo_planta:
+        +schema: tipo_planta
       
     marts:
       +materialized: table
@@ -60,6 +62,14 @@ models:
         {%- endif -%}
       core:
         +schema: core
+      clientes: 
+        +schema: clientes
+      marketing:
+        +schema: marketing
+      logistica:
+        +schema: logistica
+      producto:
+        +schema: producto
         
 snapshots:
   +sql_header: "alter session set timezone = 'Europe/Madrid';alter session set week_start = 7;"

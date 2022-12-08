@@ -7,19 +7,22 @@ WITH
     users_incrementales as (
 
         SELECT 
-            --user_id,
+            user_id,
             nombre,
             correo,
             telefono_movil,
-            _fivetran_synced
+            _fivetran_synced,
+            'Pagina_web' as Origen_del_Contacto
+
             FROM src_users
             UNION
         SELECT 
-           -- user_id,
+            user_id,
             nombre,
             correo,
             telefono_movil,
-            _fivetran_synced
+            _fivetran_synced,
+            'Twitter' as Origen_del_Contacto
             FROM twitter_usuarios
 
     

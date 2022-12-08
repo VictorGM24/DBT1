@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: fct_usuarios_cant_pedidos
+    description: ""
+    columns:
+      - name: numero_pedidos_cliente
+        description: ""
+
+      - name: users
+        description: ""
+
+  - name: fct_info_clientes
+    description: ""
+    columns:
+      - name: user_id
+        description: ""
+
+      - name: numero_pedidos_cliente
+        description: ""
+
+      - name: importe_total_cliente
+        description: ""
+
+      - name: importe_medio_pedido_cliente
+        description: ""
+
+      - name: importe_pedido_max
+        description: ""
+
+      - name: importe_pedido_min
+        description: ""
+
+      - name: direcciones_distintas_cliente
+        description: ""
+
+      - name: fecha_ultimo_pedido
+        description: ""
