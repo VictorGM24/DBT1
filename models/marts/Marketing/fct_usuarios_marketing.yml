@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: fct_usuarios_marketing
+    description: "clientes todos unidos para comunicar a todos de las diferentes ofertas que tenemos"
+    columns:
+      - name: user_id
+        description: "identificador unico de cliente"
+      - name: nombre
+        description: "nombre del cliente"
+
+      - name: correo
+        description: "correo del cliente"
+
+      - name: telefono_movil
+        description: "telefono movil"
+
+      - name: _fivetran_synced
+        description: ""

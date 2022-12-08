@@ -21,6 +21,8 @@ models:
       - name: usuarios_twitter
         description: ""
         columns:
+          - name: user_id
+            description: ""
           - name: _row
             description: ""
           - name: correo

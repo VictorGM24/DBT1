@@ -11,6 +11,7 @@ WITH src_google_sheets AS (
 
  usuarios_twitter AS (
     SELECT
+      md5(replace (_row, ' ', '')) as user_id,
       _row,
       correo,
       nombre,
