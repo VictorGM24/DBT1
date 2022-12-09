@@ -31,3 +31,4 @@ models:
 
       - name: fecha_ultimo_pedido
         description: "la fecha del ultimo pedido de cada cliente"
+

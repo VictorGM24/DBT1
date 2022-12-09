@@ -8,7 +8,6 @@ models:
         description: "identificador unico de planta"
         tests:
           - unique
-          - not_null
 
       - name: nombre_planta
         description: "nombre de la planta"

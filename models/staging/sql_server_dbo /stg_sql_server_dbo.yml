@@ -12,6 +12,7 @@ models:
       - name: id_address
         description: "identificador unico de direccion"
         tests:
+        - unique
 
       - name: pais
         description: "pais de cada cliente"
@@ -128,6 +129,7 @@ models:
       - name: tracking_id
         description: ""
         tests:
+        - unique
 
       - name: estado_id
         description: ""

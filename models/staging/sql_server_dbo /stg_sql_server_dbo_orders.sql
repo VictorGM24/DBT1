@@ -32,7 +32,7 @@ with
             status as estado_del_pedido
 
         from src_orders
-            --    where order_id = '5dbde056-632e-484a-a30b-67665cec51ee' 
+ 
 
     )
 

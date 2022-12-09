@@ -17,6 +17,9 @@ models:
 
       - name: fecha
         description: ""
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: date     
 
       - name: usuarios_twitter
         description: ""
@@ -27,6 +30,9 @@ models:
             description: ""
           - name: correo
             description: ""
+            tests:
+              - dbt_expectations.expect_column_values_to_match_like_pattern:
+                like_pattern: "%@%"  
           - name: nombre
             description: ""
           - name: creado_el

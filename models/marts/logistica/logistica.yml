@@ -13,6 +13,10 @@ models:
       - name: media_coste_envio_por_empresa_transporte
         description: "la media del coste que tiene cada empresa de transporte"
 
+      - name: total_suma_coste_envio
+        description: "Suma total del coste de envio por empresa de transporte"
+        tests:
+        - positive_values
 
 models:
   - name: estado_pedidos

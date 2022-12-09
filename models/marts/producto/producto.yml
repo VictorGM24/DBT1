@@ -18,4 +18,3 @@ models:
       - name: total_euros_producto
         description: ""
         tests: 
-          - positive_values

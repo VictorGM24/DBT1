@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: google_sheets
-    description: "Datos extraidos desde SQL Server"  
+    description: "Datos extraidos desde google_sheets"  
     schema: google_sheets # this is the schema our raw data lives in
     database: |  
         {%- if  target.name == 'user_dev' -%} dev_bronze_db_alumno2 
@@ -40,8 +40,10 @@ sources:
         columns:
           - name: _row
             description: ""
+            tests: 
+              - unique
           - name: correo
-            description: ""
+            description: ""        
           - name: nombre
             description: ""
           - name: creado_el

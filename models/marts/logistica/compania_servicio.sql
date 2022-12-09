@@ -6,8 +6,8 @@ with
         select
           servicio_de_envio,
           count(order_id) as total_pedidos_por_empresa_transporte,
-          avg (coste_envio) as media_coste_envio_por_empresa_transporte
-
+          avg (coste_envio) as media_coste_envio_por_empresa_transporte,
+          sum (coste_envio) as total_suma_coste_envio
 
 
 

@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: fct_products_orders_items
-    description: ""
+    description: "tabla de hechos de productos con orders items"
     columns:
       - name: product_id
         description: ""
@@ -21,6 +21,11 @@ models:
 
       - name: user_id
         description: ""
+
+      - name: id_nombre_planta
+        description: "identificador unico de la categoria de la planta"
+        tests:
+          - not_null
 
   - name: fct_orders
     description: ""
@@ -63,6 +68,9 @@ models:
 
       - name: venta_final
         description: ""
+        tests:
+          - positive_values
+          - not_null
 
       - name: importe_medio_pedido_cliente
         description: "el  importe medio de la cantidad total de cada cliente"
@@ -99,6 +107,8 @@ models:
     columns:
       - name: fila
         description: ""
+        tests: 
+          - unique
 
       - name: product_id
         description: ""
@@ -141,6 +151,7 @@ models:
     columns:
       - name: id_promo
         description: ""
+        tests:
 
       - name: promo_nombre
         description: ""
@@ -180,7 +191,7 @@ models:
 
       - name: id_date
         description: "identificador unico de fecha todo junto"
-
+        
       - name: anio
         description: "año"
 
@@ -192,6 +203,7 @@ models:
 
       - name: id_anio_mes
         description: "identificador unico de año y mes"
+        tests:
 
       - name: dia_previo
         description: "dia anterior"

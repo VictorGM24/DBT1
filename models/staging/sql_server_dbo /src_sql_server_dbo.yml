@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: sql_server_dbo
     description: "Datos extraidos desde SQL Server"  
-    schema: sql_server_dbo # this is the schema our raw data lives in
+    schema: sql_server_dbo # este es el esquema en el que viven nuestros datos sin procesar
     database: |  
         {%- if  target.name == 'user_dev' -%} dev_bronze_db_alumno2 
         {%- elif target.name == 'ci' -%} dev_bronze_db_alumno2
@@ -113,7 +113,8 @@ sources:
           - name: order_cost
             description: "coste del pedido"
             tests:
-              - not_null		            
+              - not_null	
+              - positive_values	            
           - name: created_at
             description: "pedido creado el"
           - name: tracking_id
