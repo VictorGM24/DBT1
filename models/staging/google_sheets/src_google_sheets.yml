@@ -24,6 +24,9 @@ sources:
             description: "Número de cada fila de la hoja de Google"
             tests:
               - not_null
+              - dbt_expectations.expect_column_values_to_be_increasing:
+                  sort_column: _row
+                   
           - name: product_id
             description: "Un id para cada producto único en la plataforma"
             tests:
@@ -42,6 +45,9 @@ sources:
             description: ""
             tests: 
               - unique
+              - dbt_expectations.expect_column_values_to_be_increasing:
+                 sort_column: _row
+
           - name: correo
             description: ""        
           - name: nombre

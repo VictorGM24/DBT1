@@ -102,6 +102,9 @@ models:
       - name: order_id
         description: ""
 
+      - name: product_id
+        description: ""
+
   - name: fct_budget
     description: "tabla de hechos de presupuesto"
     columns:

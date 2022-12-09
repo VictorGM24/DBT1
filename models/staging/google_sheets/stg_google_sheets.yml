@@ -19,10 +19,11 @@ models:
         description: ""
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: date     
+                column_type: date     
 
       - name: usuarios_twitter
         description: ""
+
         columns:
           - name: user_id
             description: ""
@@ -32,7 +33,7 @@ models:
             description: ""
             tests:
               - dbt_expectations.expect_column_values_to_match_like_pattern:
-                like_pattern: "%@%"  
+                  like_pattern: "%@%"  
           - name: nombre
             description: ""
           - name: creado_el

@@ -18,8 +18,7 @@ models:
         description: "pais de cada cliente"
 
       - name: codigo_postal
-        description: ""
-        tests:     
+        description: ""   
 
       - name: direccion
         description: ""
@@ -40,7 +39,7 @@ models:
         description: "identificador unico de evento"
 
       - name: pagina_url
-        description: "pagina web"
+        description: "pagina web"    
 
       - name: tipo_evento
         description: ""
