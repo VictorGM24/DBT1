@@ -7,7 +7,6 @@ with
         select
          order_id
         ,product_id 
-        ,cantidad
         
         
         from src_lineas_pedido

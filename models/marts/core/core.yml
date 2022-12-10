@@ -5,10 +5,10 @@ models:
     description: "tabla de hechos de productos con orders items"
     columns:
       - name: product_id
-        description: ""
+        description: "identificador unico de producto"
 
       - name: order_id
-        description: ""
+        description: "identificador unico de order"
 
       - name: precio
         description: "precio del producto"
@@ -31,19 +31,23 @@ models:
     description: ""
     columns:
       - name: order_id
-        description: ""
+        description: "identificador unico de order"
+        tests:
+          - unique
 
       - name: address_id
-        description: ""
+        description: "identificador unico de direccion"
 
       - name: user_id
         description: "identificador unico de cliente"
 
       - name: tracking_id
-        description: ""
+        description: "identificador unico del tracking del pedido"
+        tests: 
+          - unique
 
       - name: id_promo
-        description: ""
+        description: "identificador unido de promo"
 
       - name: id_date
         description: ""
@@ -59,12 +63,18 @@ models:
 
       - name: descuento
         description: "descuento por promo que tenga"
+        tests:
+          - positive_values
 
       - name: coste_envio
         description: "coste del envio"
+        tests:
+          - not_null
 
       - name: coste_total_sin_envio
         description: "coste total del pedido sin contar los gastos de envio "
+        tests:
+          - not_null
 
       - name: venta_final
         description: ""
@@ -79,31 +89,25 @@ models:
     description: ""
     columns:
       - name: event_id
-        description: ""
-
-      - name: pagina_url
-        description: ""
-
-      - name: tipo_evento
-        description: ""
+        description: "identificador unico de evento"
 
       - name: user_id
-        description: ""
+        description: "identificador unico de usuario"
 
       - name: id_date
-        description: ""
+        description: "identificador unico de id date"
 
       - name: session_id
-        description: ""
+        description: "identificador unico de sesion iniciada"
 
       - name: creado_el
         description: ""
 
       - name: order_id
-        description: ""
+        description: "identificador unico de order"
 
       - name: product_id
-        description: ""
+        description: "identificador unico de producto"
 
   - name: fct_budget
     description: "tabla de hechos de presupuesto"
@@ -118,34 +122,47 @@ models:
 
       - name: cantidad
         description: ""
+        tests:
+          - not_null
 
       - name: fecha
         description: ""
       
+      - name: id_date
+        description: ""
+        
+      - name: mes
+        description: ""
+        
+      - name: inventario
+        description: ""
+
+      - name: precio
+        description: "precio del producto"
 
   - name: dim_users
     description: "dimension de cliente"
     columns:
       - name: user_id
-        description: ""
+        description: "identificador unico de usuario"
 
       - name: actualizado_el
         description: "fecha en la que el cliente puede haber sufrido algunas modificaciones en sus datos"
 
       - name: nombre
-        description: ""
+        description: "nombre del cliente"
 
       - name: apellido
-        description: ""
+        description: "apellido del cliente"
 
       - name: creado_el
         description: "fecha en la que el cliente fue creado en la base de datos"
 
       - name: telefono_movil
-        description: ""
+        description: "telefono del cliente"
 
       - name: correo
-        description: ""
+        description: "email del cliente"
         tests:
          - dbt_expectations.expect_column_values_to_match_like_pattern:
              like_pattern: "%@%"        
@@ -154,14 +171,14 @@ models:
     description: ""
     columns:
       - name: id_promo
-        description: ""
+        description: "identificador unico de promo"
         tests:
 
       - name: promo_nombre
-        description: ""
+        description: "nombre de la promocion"
 
       - name: estado_promo
-        description: ""
+        description: "estado de la promocion"
 
   - name: dim_products
     description: ""
@@ -179,13 +196,10 @@ models:
     description: ""
     columns:
       - name: order_id
-        description: ""
+        description: "identificador unico de pedido"
 
       - name: product_id
-        description: ""
-
-      - name: cantidad
-        description: ""
+        description: "identificador unico de producto"
 
   - name: dim_fecha
     description: "dimension de fecha"
@@ -225,16 +239,16 @@ models:
         description: "identificador unico de direccion"
 
       - name: pais
-        description: ""
+        description: "pais"
 
       - name: codigo_postal
-        description: ""
+        description: "codigo postal"
 
       - name: direccion
-        description: ""
+        description: "direccion en la que vive el usuario"
 
       - name: estado_region
-        description: ""
+        description: "estado a la que pertenece el cliente"
 
 
   - name: dim_orders
@@ -245,3 +259,13 @@ models:
 
       - name: estado_del_pedido
         description: "tiene tres estados, entregada,preparada, enviada"
+
+
+  - name: dim_events
+    description: ""
+    columns:
+      - name: pagina_url
+        description: "pagina web a la que el cliente clicka"
+
+      - name: tipo_evento
+        description: "tipo evento que sucede"
