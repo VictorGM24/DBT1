@@ -190,35 +190,35 @@ models:
     description: "" 
     columns:
       - name: user_id
-        description: ""
+        description: "identificador unico de cliente"
         tests:
         
       - name: actualizado_el
-        description: ""
+        description: "datos actualizados del cliente en fecha"
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: date     
 
       - name: address_id
-        description: "" 
+        description: "identificador unico de la direccion del cliente" 
 
       - name: nombre
-        description: ""
+        description: "nombre del cliente"
 
       - name: apellido
-        description: ""
+        description: "apellido del cliente"
 
       - name: creado_el
-        description: ""
+        description: "usuario creado en la fecha"
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: date        
 
       - name: telefono_movil
-        description: ""
+        description: "telefono del cliente"
 
       - name: correo
-        description: ""
+        description: "correo del cliente"
         tests:
          - dbt_expectations.expect_column_values_to_match_like_pattern:
              like_pattern: "%@%"        

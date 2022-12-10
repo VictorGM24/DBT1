@@ -121,6 +121,7 @@ models:
 
       - name: fecha
         description: ""
+      
 
   - name: dim_users
     description: "dimension de cliente"
