@@ -27,6 +27,9 @@ models:
         tests:
           - not_null
 
+      - name: order_item_id
+        description: ""
+
   - name: fct_orders
     description: ""
     columns:
@@ -200,6 +203,10 @@ models:
 
       - name: product_id
         description: "identificador unico de producto"
+
+      - name: order_item_id
+        description: ""
+
 
   - name: dim_fecha
     description: "dimension de fecha"

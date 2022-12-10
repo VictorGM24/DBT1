@@ -3,6 +3,7 @@ with
 
 servicio_de_entrega as (
         select
+           order_id,
            servicio_de_envio,
            estado_del_pedido
 

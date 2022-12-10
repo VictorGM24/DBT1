@@ -8,7 +8,8 @@ with
 
     producto as (
         select
-          articulos.product_id
+        {{ dbt_utils.surrogate_key(['lineas_pedido.order_id', 'lineas_pedido.product_id']) }} as order_item_id
+        , articulos.product_id
         , lineas_pedido.order_id
         , precio
         , cantidad

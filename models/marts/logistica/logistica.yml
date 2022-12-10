@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: compania_servicio
+  - name: fct_compania_servicio
     description: ""
     columns:
       - name: servicio_de_envio
@@ -19,7 +19,7 @@ models:
         - positive_values
 
 models:
-  - name: estado_pedidos
+  - name: fct_estado_pedidos
     description: ""
     columns:
       - name: estado_del_pedido

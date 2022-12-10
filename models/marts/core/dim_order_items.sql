@@ -5,7 +5,8 @@ with
     
     lineas_pedido as (
         select
-         order_id
+        {{ dbt_utils.surrogate_key(['order_id', 'product_id']) }} as order_item_id
+        ,order_id
         ,product_id 
         
         
