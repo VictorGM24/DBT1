@@ -1,8 +1,8 @@
 with
 
-    src_products as (select * from {{ ref('stg_sql_server_dbo_products') }}),
+    products as (select * from {{ ref('stg_sql_server_dbo_products') }}),
 
-    src_tipo_planta as (select * from {{ ref('stg_tipo_planta') }}),
+    tipo_planta as (select * from {{ ref('stg_tipo_planta') }}),
 
 
     productos as (
@@ -13,8 +13,8 @@ with
         
 
 
-        from src_products
-        join src_tipo_planta on src_tipo_planta.id_nombre_planta = src_products.id_nombre_planta
+        from products
+        join tipo_planta on tipo_planta.id_nombre_planta = products.id_nombre_planta
 
     )
 
