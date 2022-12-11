@@ -68,6 +68,11 @@ models:
         description: "descuento por promo que tenga"
         tests:
           - positive_values
+      - name: servicio_de_envio
+        description: ""
+
+      - name: estado_del_pedido
+        description: ""
 
       - name: coste_envio
         description: "coste del envio"
@@ -256,16 +261,6 @@ models:
 
       - name: estado_region
         description: "estado a la que pertenece el cliente"
-
-
-  - name: dim_orders
-    description: ""
-    columns:
-      - name: servicio_envio
-        description: "empresa encargada del servio de envio"
-
-      - name: estado_del_pedido
-        description: "tiene tres estados, entregada,preparada, enviada"
 
 
   - name: dim_events

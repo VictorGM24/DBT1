@@ -15,6 +15,8 @@ with
         , tracking_id
         , promos.id_promo
         , dim_fecha.id_date
+        , servicio_de_envio
+        , estado_del_pedido
         , entrega_estimada
         , entregado_el
         , DATEDIFF(day, creado_el, entregado_el) AS tiempo_entrega
