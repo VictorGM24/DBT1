@@ -6,8 +6,6 @@ models:
     columns:
       - name: user_id
         description: "identificador unico de cliente"
-        tests:
-          - unique
           
       - name: nombre
         description: "nombre del cliente"
