@@ -1,3 +1,11 @@
+{{ config(
+    materialized='is_incremental'    
+    ) 
+    }}
+
+
+
+
 WITH 
 
     src_users as (select * from {{ ref('stg_sql_server_dbo_users') }}),
@@ -33,3 +41,9 @@ WITH
 select * 
 from users_incrementales
 
+
+{% if is_incremental() %}
+
+  where creado_el > (select max(creado_el) from {{ this }})
+
+{% endif %}
