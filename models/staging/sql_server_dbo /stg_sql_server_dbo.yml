@@ -1,0 +1,230 @@
+version: 2
+
+
+models:
+  - name: stg_sql_server_dbo_addresses
+    description: ""
+    tests:
+        - dbt_expectations.expect_table_column_count_to_equal:
+            value: 5
+
+    columns:
+      - name: id_address
+        description: "identificador unico de direccion"
+        tests:
+        - unique
+
+      - name: pais
+        description: "pais de cada cliente"
+
+      - name: codigo_postal
+        description: ""   
+
+      - name: direccion
+        description: ""
+        tests:     
+
+      - name: estado_region
+        description: ""
+
+
+  - name: stg_sql_server_dbo_events
+    description: ""
+    tests:
+        - dbt_expectations.expect_table_column_count_to_equal:
+            value: 8
+
+    columns:
+      - name: event_id
+        description: "identificador unico de evento"
+
+      - name: pagina_url
+        description: "pagina web"    
+
+      - name: tipo_evento
+        description: ""
+
+      - name: user_id
+        description: "identicador unico de usuario"
+
+      - name: product_id
+        description: "identifador unico de producto"
+
+      - name: session_id
+        description: ""
+
+      - name: creado_el
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: date     
+
+      - name: order_id
+        description: ""
+
+
+  - name: stg_sql_server_dbo_order_items
+    description: ""
+    tests:
+        - dbt_expectations.expect_table_column_count_to_equal:
+            value: 3 
+    columns:
+      - name: order_id
+        description: ""
+        tests:
+
+      - name: product_id
+        description: ""
+        tests:
+
+      - name: cantidad
+        description: ""
+
+
+  - name: stg_sql_server_dbo_orders
+    description: ""
+    tests:
+        - dbt_expectations.expect_table_column_count_to_equal:
+            value: 15    
+    columns:
+      - name: order_id
+        description: ""
+        tests:
+
+      - name: address_id
+        description: ""
+        
+      - name: servicio_de_envio
+        description: ""
+
+      - name: creado_el
+        description: ""
+
+      - name: id_promo
+        description: ""
+
+      - name: promo_nombre
+        description: ""
+
+      - name: entrega_estimada
+        description: ""
+
+      - name: coste_total_sin_envio
+        description: ""
+        tests:
+          - positive_values
+
+      - name: user_id
+        description: ""
+
+      - name: venta_final
+        description: ""
+        tests:
+          - positive_values
+
+      - name: entregado_el
+        description: "entregado en la fecha"
+
+      - name: tracking_id
+        description: ""
+        tests:
+        - unique
+
+      - name: estado_id
+        description: ""
+      
+      - name: estado_del_pedido
+        description: ""
+
+      - name: coste_envio
+        description: "coste del envio"
+
+
+  - name: stg_sql_server_dbo_products
+    description: ""
+    tests:
+        - dbt_expectations.expect_table_column_count_to_equal:
+            value: 5    
+
+    columns:
+      - name: product_id
+        description: ""
+
+      - name: precio
+        description: "precio del articulo, en este caso son plantas"
+
+      - name: id_nombre_planta
+        description: ""
+
+      - name: nombre_producto
+        description: "nombre de los productos, que en este caso son plantas"
+
+      - name: inventario
+        description: "el stock que tenemos de cada producto"
+
+  - name: stg_sql_server_dbo_promos
+    description: ""
+    tests:
+        - dbt_expectations.expect_table_column_count_to_equal:
+            value: 4      
+    columns:
+      - name: id_promo
+        description: ""
+        tests:
+
+      - name: promo_nombre
+        description: ""
+
+      - name: descuento
+        description: ""
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0 
+              max_value: 100 
+
+      - name: estado_promo
+        description: ""
+
+
+  - name: stg_sql_server_dbo_users
+    description: "" 
+    columns:
+      - name: user_id
+        description: "identificador unico de cliente"
+        tests:
+        
+      - name: actualizado_el
+        description: "datos actualizados del cliente en fecha"
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: date     
+
+      - name: address_id
+        description: "identificador unico de la direccion del cliente" 
+
+      - name: nombre
+        description: "nombre del cliente"
+
+      - name: apellido
+        description: "apellido del cliente"
+
+      - name: creado_el
+        description: "usuario creado en la fecha"
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: date        
+
+      - name: telefono_movil
+        description: "telefono del cliente"
+
+      - name: correo
+        description: "correo del cliente"
+        tests:
+         - dbt_expectations.expect_column_values_to_match_like_pattern:
+             like_pattern: "%@%"        
+
+      - name: _fivetran_deleted
+        description: ""
+
+      - name: _fivetran_synced
+        description: ""

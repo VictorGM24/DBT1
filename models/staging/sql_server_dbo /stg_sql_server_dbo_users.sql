@@ -14,7 +14,8 @@ with
             cast(created_at as date) as creado_el,
             phone_number as telefono_movil,
             email as correo,
-            total_orders as total_pedidos
+            _fivetran_synced,
+            _fivetran_deleted
 
         from src_users
 

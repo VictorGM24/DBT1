@@ -5,13 +5,13 @@ with
     
     lineas_pedido as (
         select
-         product_id 
-        ,cantidad
+        {{ dbt_utils.surrogate_key(['order_id', 'product_id']) }} as order_item_id
+        ,order_id
+        ,product_id 
         
         
         from src_lineas_pedido
-       -- join lineas_pedido on lineas_pedido.order_id = pedidos.order_id
-        --join articulos on articulos.product_id = lineas_pedido.product_id
+
 
 
     )

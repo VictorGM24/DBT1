@@ -1,0 +1,273 @@
+version: 2
+
+models:
+  - name: fct_products_orders_items
+    description: "tabla de hechos de productos con orders items"
+    columns:
+      - name: product_id
+        description: "identificador unico de producto"
+
+      - name: order_id
+        description: "identificador unico de order"
+
+      - name: precio
+        description: "precio del producto"
+
+      - name: cantidad
+        description: "cantidad de productos"
+
+      - name: importe_total_linea
+        description: "es el importe total por linea de ticket"
+
+      - name: user_id
+        description: ""
+
+      - name: id_nombre_planta
+        description: "identificador unico de la categoria de la planta"
+        tests:
+          - not_null
+
+      - name: order_item_id
+        description: ""
+
+  - name: fct_orders
+    description: ""
+    columns:
+      - name: order_id
+        description: "identificador unico de order"
+        tests:
+          - unique
+
+      - name: address_id
+        description: "identificador unico de direccion"
+
+      - name: user_id
+        description: "identificador unico de cliente"
+
+      - name: tracking_id
+        description: "identificador unico del tracking del pedido"
+        tests: 
+          - unique
+
+      - name: id_promo
+        description: "identificador unido de promo"
+
+      - name: id_date
+        description: ""
+
+      - name: entrega_estimada
+        description: "fecha de entrega del pedido estimada"
+
+      - name: entregado_el
+        description: "pedido entregado el"
+
+      - name: tiempo_entrega
+        description: "tiempo de entrega"
+
+      - name: descuento
+        description: "descuento por promo que tenga"
+        tests:
+          - positive_values
+      - name: servicio_de_envio
+        description: ""
+
+      - name: estado_del_pedido
+        description: ""
+
+      - name: coste_envio
+        description: "coste del envio"
+        tests:
+          - not_null
+
+      - name: coste_total_sin_envio
+        description: "coste total del pedido sin contar los gastos de envio "
+        tests:
+          - not_null
+
+      - name: venta_final
+        description: ""
+        tests:
+          - positive_values
+          - not_null
+
+      - name: importe_medio_pedido_cliente
+        description: "el  importe medio de la cantidad total de cada cliente"
+
+  - name: fct_events
+    description: ""
+    columns:
+      - name: event_id
+        description: "identificador unico de evento"
+
+      - name: user_id
+        description: "identificador unico de usuario"
+
+      - name: id_date
+        description: "identificador unico de id date"
+
+      - name: session_id
+        description: "identificador unico de sesion iniciada"
+
+      - name: creado_el
+        description: ""
+
+      - name: order_id
+        description: "identificador unico de order"
+
+      - name: product_id
+        description: "identificador unico de producto"
+
+  - name: fct_budget
+    description: "tabla de hechos de presupuesto"
+    columns:
+      - name: fila
+        description: ""
+        tests: 
+          - unique
+
+      - name: product_id
+        description: ""
+
+      - name: cantidad
+        description: ""
+        tests:
+          - not_null
+
+      - name: fecha
+        description: ""
+      
+      - name: id_date
+        description: ""
+        
+      - name: mes
+        description: ""
+        
+      - name: inventario
+        description: ""
+
+      - name: precio
+        description: "precio del producto"
+
+  - name: dim_users
+    description: "dimension de cliente"
+    columns:
+      - name: user_id
+        description: "identificador unico de usuario"
+
+      - name: actualizado_el
+        description: "fecha en la que el cliente puede haber sufrido algunas modificaciones en sus datos"
+
+      - name: nombre
+        description: "nombre del cliente"
+
+      - name: apellido
+        description: "apellido del cliente"
+
+      - name: creado_el
+        description: "fecha en la que el cliente fue creado en la base de datos"
+
+      - name: telefono_movil
+        description: "telefono del cliente"
+
+      - name: correo
+        description: "email del cliente"
+        tests:
+         - dbt_expectations.expect_column_values_to_match_like_pattern:
+             like_pattern: "%@%"        
+
+  - name: dim_promos
+    description: ""
+    columns:
+      - name: id_promo
+        description: "identificador unico de promo"
+        tests:
+
+      - name: promo_nombre
+        description: "nombre de la promocion"
+
+      - name: estado_promo
+        description: "estado de la promocion"
+
+  - name: dim_products
+    description: ""
+    columns:
+      - name: product_id
+        description: ""
+
+      - name: nombre_producto
+        description: ""
+
+      - name: tipo_planta
+        description: "categoria o tipo a la que pertenece la planta"
+
+  - name: dim_order_items
+    description: ""
+    columns:
+      - name: order_id
+        description: "identificador unico de pedido"
+
+      - name: product_id
+        description: "identificador unico de producto"
+
+      - name: order_item_id
+        description: ""
+
+
+  - name: dim_fecha
+    description: "dimension de fecha"
+    columns:
+      - name: fecha_forecast
+        description: "fecha completa"
+
+      - name: id_date
+        description: "identificador unico de fecha todo junto"
+        
+      - name: anio
+        description: "año"
+
+      - name: mes
+        description: "mes"
+
+      - name: desc_mes
+        description: "mes descendiente"
+
+      - name: id_anio_mes
+        description: "identificador unico de año y mes"
+        tests:
+
+      - name: dia_previo
+        description: "dia anterior"
+
+      - name: anio_semana_dia
+        description: ""
+
+      - name: semana
+        description: ""
+
+  - name: dim_addresses
+    description: ""
+    columns:
+      - name: id_address
+        description: "identificador unico de direccion"
+
+      - name: pais
+        description: "pais"
+
+      - name: codigo_postal
+        description: "codigo postal"
+
+      - name: direccion
+        description: "direccion en la que vive el usuario"
+
+      - name: estado_region
+        description: "estado a la que pertenece el cliente"
+
+
+  - name: dim_events
+    description: ""
+    columns:
+      - name: pagina_url
+        description: "pagina web a la que el cliente clicka"
+
+      - name: tipo_evento
+        description: "tipo evento que sucede"

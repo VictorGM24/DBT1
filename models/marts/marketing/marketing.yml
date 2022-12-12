@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: fct_usuarios_marketing
+    description: "clientes todos unidos para comunicar a todos de las diferentes ofertas que tenemos"
+    columns:
+      - name: user_id
+        description: "identificador unico de cliente"
+        tests:
+          - unique
+          
+      - name: nombre
+        description: "nombre del cliente"
+
+      - name: correo
+        description: "correo del cliente"
+        tests:
+         - dbt_expectations.expect_column_values_to_match_like_pattern:
+             like_pattern: "%@%"  
+
+      - name: telefono_movil
+        description: "telefono movil"
+
+      - name: _fivetran_synced
+        description: ""

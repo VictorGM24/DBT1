@@ -1,11 +1,9 @@
 version: 2
 
 sources:
-
-  - name: google_sheets # Name of the source, this name will be used to reference the {{ source ('','') }} function.
-    description: >
-      Raw data demo from Budget.
-    schema: google_sheets # This is the schema our raw data lives in snowflake.
+  - name: google_sheets
+    description: "Datos extraidos desde google_sheets"  
+    schema: google_sheets # this is the schema our raw data lives in
     database: |  
         {%- if  target.name == 'user_dev' -%} dev_bronze_db_alumno2 
         {%- elif target.name == 'ci' -%} dev_bronze_db_alumno2
@@ -17,41 +15,46 @@ sources:
       database: false
       schema: false
       identifier: false
-
-    freshness:
-      warn_after: {count: 24, period: hour}
-      error_after: {count: 48, period: hour}
-
     tables:
 
       - name: budget
-        loaded_at_field: _fivetran_synced
-        description: >
-          Data about budget in demo.
+        description: "Datos sobre el presupuesto"
         columns:
           - name: _row
-            description: >
-              Number of each row from google sheet.
+            description: "Número de cada fila de la hoja de Google"
             tests:
               - not_null
-              - unique
+              - dbt_expectations.expect_column_values_to_be_increasing:
+                  sort_column: _row
+                   
           - name: product_id
-            description: >
-              UUID for each unique product on platform.
+            description: "Un id para cada producto único en la plataforma"
             tests:
               - not_null
           - name: quantity
-            description: >
-              Number of units for each product and each month for products.
+            description: "Numero de unidades por cada producto y cada mes por productos"
             tests:
               - not_null
           - name: month
-            description: >
-              Each month for the budget > End of the month.
-            tests:
-              - not_null
+            description: "Cada mes para el presupuesto > Fin de mes"
+
+      - name: usuarios_twitter
+        description: ""
+        columns:
+          - name: _row
+            description: ""
+            tests: 
+              - unique
+              - dbt_expectations.expect_column_values_to_be_increasing:
+                 sort_column: _row
+
+          - name: correo
+            description: ""        
+          - name: nombre
+            description: ""
+          - name: creado_el
+            description: ""
+          - name: telefono_movil
+            description: ""
           - name: _fivetran_synced
-            description: >
-              Date on which data were uploaded.
-            tests:
-              - not_null
+            description: ""

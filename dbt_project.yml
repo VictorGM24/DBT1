@@ -1,9 +1,7 @@
-
-
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'curso'
+name: 'dbt_project'
 version: '1.0.0'
 config-version: 2
 
@@ -34,7 +32,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   +transient: false
-  curso:
+  dbt_project:
     # Applies to all files under models/example/
 
     staging:
@@ -49,6 +47,8 @@ models:
         +schema: google_sheets
       sql_server_dbo:
         +schema: sql_server_dbo
+      tipo_planta:
+        +schema: tipo_planta
       
     marts:
       +materialized: table
@@ -60,6 +60,14 @@ models:
         {%- endif -%}
       core:
         +schema: core
+      clientes: 
+        +schema: clientes
+      marketing:
+        +schema: marketing
+      logistica:
+        +schema: logistica
+      producto:
+        +schema: producto
         
 snapshots:
   +sql_header: "alter session set timezone = 'Europe/Madrid';alter session set week_start = 7;"

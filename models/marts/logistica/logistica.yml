@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: fct_compania_servicio
+    description: ""
+    columns:
+      - name: servicio_de_envio
+        description: "nombre de las companias de la empresa de envio"
+
+      - name: total_pedidos_por_empresa_transporte
+        description: "el numero total de pedidos por la empresa de transporte"
+
+      - name: media_coste_envio_por_empresa_transporte
+        description: "la media del coste que tiene cada empresa de transporte"
+
+      - name: total_suma_coste_envio
+        description: "Suma total del coste de envio por empresa de transporte"
+        tests:
+        - positive_values
+
+models:
+  - name: fct_estado_pedidos
+    description: ""
+    columns:
+      - name: estado_del_pedido
+        description: "el estado en el que se encuentra el pedido"
+
+      - name: total_estado_pedido
+        description: ""

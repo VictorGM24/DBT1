@@ -17,6 +17,7 @@ products_renamed AS (
     SELECT
           product_id 
         , price as precio
+        , md5(replace (name, ' ', '')) as id_nombre_planta
         , name as nombre_producto
         , inventory as inventario
 

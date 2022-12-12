@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: fct_productos_almacen
+    description: ""
+    columns:
+      - name: product_id
+        description: ""
+        tests:
+          - unique
+
+      - name: inventario
+        description: "el stock que tenemos de cada producto"
+
+      - name: precio
+        description: "precio del articulo, en este caso son plantas"
+
+      - name: total_euros_producto
+        description: ""
+        tests: 
