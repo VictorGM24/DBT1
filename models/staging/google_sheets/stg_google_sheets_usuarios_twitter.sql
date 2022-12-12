@@ -1,5 +1,5 @@
 {{ config(
-    materialized='incremental'    
+    materialized='view'    
     ) 
     }}
 
@@ -23,9 +23,10 @@ WITH src_google_sheets AS (
     )
 
 SELECT * FROM usuarios_twitter 
-
+/*
 {% if is_incremental() %}
 
   where creado_el > (select max(creado_el) from {{ this }})
 
 {% endif %}
+*/
