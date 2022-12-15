@@ -31,8 +31,6 @@ models:
   - name: stg_sql_server_dbo_events
     description: ""
     tests:
-        - dbt_expectations.expect_table_column_count_to_equal:
-            value: 8
 
     columns:
       - name: event_id
