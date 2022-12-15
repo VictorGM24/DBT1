@@ -1,10 +1,3 @@
-{{ config(
-    materialized='is_incremental'    
-    ) 
-    }}
-
-
-
 
 WITH 
 
@@ -41,9 +34,3 @@ WITH
 select * 
 from users_incrementales
 
-
-{% if is_incremental() %}
-
-  where creado_el > (select max(creado_el) from {{ this }})
-
-{% endif %}
