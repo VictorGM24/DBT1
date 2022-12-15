@@ -11,7 +11,6 @@ events_renamed AS (
         ,user_id
         ,product_id
         ,session_id
-        ,created_at
         ,cast(created_at as date) as creado_el
         ,order_id
 
